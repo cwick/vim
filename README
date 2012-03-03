@@ -1,0 +1,3 @@
+Clone into ~/.vim
+Then run
+ln -s .vim/vimrc ~/.vimrc
