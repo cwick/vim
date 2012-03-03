@@ -54,8 +54,14 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set t_Co=256
 colorscheme zenburn
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
+" GoToFile shortcuts
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+
+" Switch to alternate file
+nnoremap <leader><leader> <c-^>
 
 " Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
