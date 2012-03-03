@@ -3,6 +3,7 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
+call pathogen#infect()            " Pathogen plugin loading
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
