@@ -43,7 +43,7 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set title                         " Set the terminal's title
 
-set visualbell                    " No beeping.
+set novisualbell                  " No annoying flashing
 
 set cursorline                    " Highlight current line.
 " set colorcolumn=90
