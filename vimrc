@@ -50,7 +50,7 @@ set cursorline                    " Highlight current line.
 " highlight ColorColumn ctermbg=black
 
 set list
-set listchars=tab:▸\
+set listchars=tab:▸\ ,
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
