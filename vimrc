@@ -68,6 +68,9 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 " Indent
 set autoindent
 
+" Remap leader
+let mapleader = ","
+
 " GoToFile shortcuts
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
@@ -84,12 +87,7 @@ vnoremap <F1> <ESC>
 
 " Controversial...swap colon and semicolon for easier commands
 nnoremap ; :
-nnoremap : ;
 vnoremap ; :
-vnoremap : ;
-
-" Remap leader
-let mapleader = ","
 
 " Movement
 nnoremap <up> <nop>
