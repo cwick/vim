@@ -30,6 +30,8 @@ set smartcase                     " But case-sensitive if expression contains a 
 set nonumber                      " Line numbers.
 set ruler                         " Cursor position.
 
+" Use correct ack program on Debian / Ubuntu
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 highlight Search cterm=underline
@@ -37,8 +39,10 @@ set showmatch                     " Show matching brackets
 " Press Space to turn off highlighting and clear any message already
 " displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" Use consistent search patterns
 nnoremap/ /\v
 vnoremap/ /\v
+
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
@@ -77,6 +81,12 @@ map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+
+" Fuzzy commands
+let g:fuf_modesDisable = ['mrucmd']
+map <leader>e :FufFile<cr>
+map <leader>b :FufBuffer<cr>
+map <leader>r :FufMruFile<cr>
 
 " Switch to alternate file
 nnoremap <leader><leader> <c-^>
