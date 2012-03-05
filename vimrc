@@ -118,6 +118,9 @@ nnoremap k gk
 vnoremap > >gv
 vnoremap < <gv
 
+" Window management
+map <leader>w <c-w>
+
 function! <SID>StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
