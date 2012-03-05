@@ -114,6 +114,10 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" Keep visual selection after indenting
+vnoremap > >gv
+vnoremap < <gv
+
 function! <SID>StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
