@@ -36,8 +36,9 @@ highlight Search cterm=underline
 set showmatch                     " Show matching brackets
 " Press Space to turn off highlighting and clear any message already
 " displayed.
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap/ /\v
+vnoremap/ /\v
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
