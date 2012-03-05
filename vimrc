@@ -30,8 +30,6 @@ set smartcase                     " But case-sensitive if expression contains a 
 set nonumber                      " Line numbers.
 set ruler                         " Cursor position.
 
-" Use correct ack program on Debian / Ubuntu
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 highlight Search cterm=underline
@@ -87,6 +85,10 @@ let g:fuf_modesDisable = ['mrucmd']
 map <leader>e :FufFile<cr>
 map <leader>b :FufBuffer<cr>
 map <leader>r :FufMruFile<cr>
+
+" Use correct ack program on Debian / Ubuntu
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+map <leader>a :Ack<space>
 
 " Switch to alternate file
 nnoremap <leader><leader> <c-^>
