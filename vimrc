@@ -108,6 +108,11 @@ map <leader>e :FufFile<cr>
 map <leader>b :FufBuffer<cr>
 map <leader>r :FufMruFile<cr>
 
+" cd shortcuts
+map <leader>cs :cd ~/dev/schools<cr>
+map <leader>cv :cd ~/.vim<cr>
+map <leader>cdf :cd ~/dev/dotfiles<cr>
+
 " Use correct ack program on Debian / Ubuntu
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 map <leader>a :Ack<space>
