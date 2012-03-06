@@ -27,7 +27,7 @@ set wildignorecase
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
-set nonumber                      " Line numbers.
+set number                        " Line numbers.
 set ruler                         " Cursor position.
 
 set incsearch                     " Highlight matches as you type.
