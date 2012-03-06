@@ -57,7 +57,7 @@ set listchars=tab:▸\ ,
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set directory=$HOME/.vim/tmp/,.  " Keep swap files in one location
 
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
@@ -73,6 +73,28 @@ set autoindent
 
 " Remap leader
 let mapleader = ","
+
+function! <SID>StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Delete trailing whitespace when saving
+autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " GoToFile shortcuts
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
@@ -107,10 +129,6 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -121,24 +139,3 @@ vnoremap < <gv
 " Window management
 map <leader>w <c-w>
 
-function! <SID>StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-" Delete trailing whitespace when saving
-autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
-
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
