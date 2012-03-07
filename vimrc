@@ -115,9 +115,9 @@ map <leader>cdf :cd ~/dev/dotfiles<cr>
 
 " Use correct ack program on Debian / Ubuntu
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-map <leader>aa :Ack<space>
-map <leader>aj :Ack<space>--type=js<space>
-map <leader>ar :Ack<space>--type=ruby<space>
+map <leader>aa :Ack!<space>
+map <leader>aj :Ack!<space>--type=js<space>
+map <leader>ar :Ack!<space>--type=ruby<space>
 
 " Switch to alternate file
 nnoremap <leader><leader> <c-^>
@@ -146,3 +146,28 @@ vnoremap < <gv
 " Window management
 map <leader>w <c-w>
 
+nnoremap <C-W>O :call MaximizeToggle ()<CR>
+nnoremap <C-W>o :call MaximizeToggle ()<CR>
+nnoremap <C-W><C-O> :call MaximizeToggle ()<CR>
+
+function! MaximizeToggle()
+  if exists("s:maximize_session")
+    exec "source " . s:maximize_session
+    call delete(s:maximize_session)
+    unlet s:maximize_session
+    let &hidden=s:maximize_hidden_save
+    unlet s:maximize_hidden_save
+  else
+    let s:maximize_hidden_save = &hidden
+    let s:maximize_session = tempname()
+    set hidden
+    exec "mksession! " . s:maximize_session
+    only
+  endif
+endfunction
+
+" shrink quick fix window to fit
+au FileType qf call AdjustWindowHeight(3, 10)
+function! AdjustWindowHeight(minheight, maxheight)
+  exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
