@@ -37,9 +37,6 @@ set showmatch                     " Show matching brackets
 " Press Space to turn off highlighting and clear any message already
 " displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-" Use consistent search patterns
-nnoremap/ /\v
-vnoremap/ /\v
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
@@ -49,8 +46,6 @@ set title                         " Set the terminal's title
 set novisualbell                  " No annoying flashing
 
 set cursorline                    " Highlight current line.
-" set colorcolumn=90
-" highlight ColorColumn ctermbg=black
 
 set list
 set listchars=tab:▸\ ,
@@ -96,15 +91,23 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" open files in directory of current file
+function! DirectoryOfFile()
+ return expand('%:h').'/'
+endfunction
+map <leader>v :view <C-R>=DirectoryOfFile()<cr><cr>
+
 " GoToFile shortcuts
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT <C-R>=DirectoryOfFile()<cr><cr>
 
 " Fuzzy commands
 let g:fuf_modesDisable = ['mrucmd']
-map <leader>e :FufFile<cr>
+map <leader>e :FufFile <C-R>=DirectoryOfFile()<cr><cr>
 map <leader>b :FufBuffer<cr>
 map <leader>r :FufMruFile<cr>
 
@@ -179,3 +182,20 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
+
+" rspec
+function! RSpec()
+  :wa
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  exec ":!rspec --color"
+endfunction
+map <leader>t :call RSpec()<cr>
+
