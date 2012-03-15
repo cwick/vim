@@ -149,26 +149,6 @@ vnoremap < <gv
 " Window management
 map <leader>w <c-w>
 
-nnoremap <C-W>O :call MaximizeToggle ()<CR>
-nnoremap <C-W>o :call MaximizeToggle ()<CR>
-nnoremap <C-W><C-O> :call MaximizeToggle ()<CR>
-
-function! MaximizeToggle()
-  if exists("s:maximize_session")
-    exec "source " . s:maximize_session
-    call delete(s:maximize_session)
-    unlet s:maximize_session
-    let &hidden=s:maximize_hidden_save
-    unlet s:maximize_hidden_save
-  else
-    let s:maximize_hidden_save = &hidden
-    let s:maximize_session = tempname()
-    set hidden
-    exec "mksession! " . s:maximize_session
-    only
-  endif
-endfunction
-
 " shrink quick fix window to fit
 au FileType qf call AdjustWindowHeight(3, 10)
 function! AdjustWindowHeight(minheight, maxheight)
@@ -183,19 +163,7 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
-" rspec
-function! RSpec()
-  :wa
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  exec ":!rspec --color"
-endfunction
-map <leader>t :call RSpec()<cr>
+"Tests
+source ~/.vim/cwick-test.vim
+map <leader>t :call RunTests()<cr>
 
