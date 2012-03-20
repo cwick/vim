@@ -102,6 +102,7 @@ map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
 map <leader>gr :e config/routes.rb<cr>
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT <C-R>=DirectoryOfFile()<cr><cr>
@@ -146,8 +147,6 @@ nnoremap k gk
 " Fast escape out of insert and visual mode
 inoremap jk <ESC>
 inoremap kj <ESC>
-vnoremap jk <ESC>
-vnoremap kj <ESC>
 
 " Keep visual selection after indenting
 vnoremap > >gv
