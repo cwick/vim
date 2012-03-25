@@ -43,6 +43,8 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set title                         " Set the terminal's title
 
+set autoread                      " Automatically reload file on external change
+
 set novisualbell                  " No annoying flashing
 
 set cursorline                    " Highlight current line.
