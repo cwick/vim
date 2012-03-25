@@ -44,7 +44,7 @@ function! RunTests()
   :wa
   let current_file = expand("%")
 
-  if match(current_file, '\.feature$') != -1
+  if (match(current_file, '\.feature$') != -1) || (match(current_file, 'step_definitions/') != -1)
     call s:RunCucumber()
   elseif match(current_file, '_spec.rb$') != -1
     call s:RunRSpec()
