@@ -18,7 +18,13 @@ function! s:RunRSpec()
 endfunction
 
 function! s:RunCucumber()
-  call s:ExecWithClear(":!script/cucumber")
+  if filereadable("script/cucumber")
+    let cucumber_cmd = "script/cucumber"
+  else
+    let cucumber_cmd = "cucumber"
+  endif
+
+  call s:ExecWithClear(":!" . cucumber_cmd)
   let s:cwick_test = "s:RunCucumber"
 endfunction
 
