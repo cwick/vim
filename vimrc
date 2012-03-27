@@ -175,3 +175,6 @@ set winheight=999
 source ~/.vim/cwick-test.vim
 map <leader>t :call RunTests()<cr>
 
+"Autoread that actually works
+source ~/.vim/cwick-autoread.vim
+au VimEnter * WatchForChangesAllFile
