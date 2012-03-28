@@ -156,6 +156,7 @@ vnoremap < <gv
 
 " Window management
 map <leader>w <c-w>
+map <leader>q :cope<cr>
 
 " shrink quick fix window to fit
 au FileType qf call AdjustWindowHeight(3, 10)
