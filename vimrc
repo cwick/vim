@@ -125,6 +125,8 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 map <leader>aa :Ack!<space>
 map <leader>aj :Ack!<space>--type=js<space>
 map <leader>ar :Ack!<space>--type=ruby<space>
+" Highlight current word in all buffers and then ack for it in all files
+map <leader>aw *#:Ack!<space><cword><cr>
 
 " Switch to alternate file
 nnoremap <leader><leader> <c-^>
@@ -177,5 +179,5 @@ source ~/.vim/cwick-test.vim
 map <leader>t :call RunTests()<cr>
 
 "Autoread that actually works
-source ~/.vim/cwick-autoread.vim
-au VimEnter * WatchForChangesAllFile
+" source ~/.vim/cwick-autoread.vim
+" au VimEnter * WatchForChangesAllFile
