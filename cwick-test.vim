@@ -13,7 +13,12 @@ function! s:ExecWithClear(command)
 endfunction
 
 function! s:RunRSpec()
-  call s:ExecWithClear(":!rspec --color")
+  if filereadable("Gemfile")
+    let rspec_cmd = ":!bundle exec rspec --color"
+  else
+    let rspec_cmd = ":!rspec --color"
+  endif
+  call s:ExecWithClear(rspec_cmd)
   let s:cwick_test = "s:RunRSpec"
 endfunction
 
