@@ -103,6 +103,7 @@ map <leader>v :view <C-R>=DirectoryOfFile()<cr><cr>
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gj :CommandTFlush<cr>\|:CommandT public/javascripts<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
 map <leader>gr :e config/routes.rb<cr>
