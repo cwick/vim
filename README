@@ -1,3 +1,7 @@
 Clone into ~/.vim (Use --recurse option)
 Then run
 ln -s .vim/vimrc ~/.vimrc
+
+
+To get the clipboard working in OSX when running vim under tmux:
+https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
