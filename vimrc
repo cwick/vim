@@ -147,10 +147,6 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-" Fast escape out of insert and visual mode
-inoremap jk <ESC>
-inoremap kj <ESC>
-
 " Keep visual selection after indenting
 vnoremap > >gv
 vnoremap < <gv
