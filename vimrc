@@ -124,9 +124,9 @@ map <leader>cdf :cd ~/dev/dotfiles<cr>
 
 " Use correct ack program on Debian / Ubuntu
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-map <leader>aa :Ack!<space>
-map <leader>aj :Ack!<space>--type=js<space>--type=coffee<space>
-map <leader>ar :Ack!<space>--type=ruby<space>
+map <leader>aa :Ack!<space>""<left>
+map <leader>aj :Ack!<space>--type=js<space>--type=coffee<space>""<left>
+map <leader>ar :Ack!<space>--type=ruby<space>""<left>
 " Highlight current word in all buffers and then ack for it in all files
 map <leader>aw *#:Ack!<space><cword><cr>
 
