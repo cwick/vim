@@ -45,6 +45,7 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title                         " Set the terminal's title
 
 set autoread                      " Automatically reload file on external change
+set autowrite                     " Automatically save files
 
 set novisualbell                  " No annoying flashing
 
