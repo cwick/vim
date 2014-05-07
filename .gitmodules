@@ -34,3 +34,6 @@
 [submodule "bundle/vim-emblem"]
 	path = bundle/vim-emblem
 	url = https://github.com/heartsentwined/vim-emblem.git
+[submodule "bundle/vim-rename"]
+	path = bundle/vim-rename
+	url = https://github.com/wojtekmach/vim-rename.git
