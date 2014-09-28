@@ -123,8 +123,7 @@ map <leader>cs :cd ~/dev/schools<cr>
 map <leader>cv :cd ~/.vim<cr>
 map <leader>cdf :cd ~/dev/dotfiles<cr>
 
-" Use correct ack program on Debian / Ubuntu
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 map <leader>aa :Ack!<space>""<left>
 map <leader>aj :Ack!<space>--type=js<space>--type=coffee<space>""<left>
 map <leader>ar :Ack!<space>--type=ruby<space>""<left>
@@ -163,18 +162,7 @@ function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 
-" set winwidth=84
-" " We have to have a winheight bigger than we want to set winminheight. But if
-" " we set winheight to be huge before winminheight, the winminheight set will
-" " fail.
-" set winheight=5
-" set winminheight=5
-" set winheight=999
-
 "Tests
 source ~/.vim/cwick-test.vim
 map <leader>t :call RunTests()<cr>
 
-"Autoread that actually works
-" source ~/.vim/cwick-autoread.vim
-" au VimEnter * WatchForChangesAllFile
