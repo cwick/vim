@@ -58,10 +58,10 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp/,.  " Keep swap files in one location
 
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
+set tabstop=4                    " Global tab width.
+set shiftwidth=4                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
-set softtabstop=2
+set softtabstop=4
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
@@ -166,3 +166,7 @@ endfunction
 source ~/.vim/cwick-test.vim
 map <leader>t :call RunTests()<cr>
 
+
+
+"Ruby
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
